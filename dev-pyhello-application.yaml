@@ -8,10 +8,10 @@ spec:
   source:
     repoURL: https://github.com/rvega-clearroute/pyhello.git
     targetRevision: HEAD
-    path: Helm/pyhello
+    path: Helm/dev/pyhello
   destination:
     server: https://kubernetes.default.svc
-    namespace: pyhello
+    namespace: dev
 
   syncPolicy:
     syncOptions:
