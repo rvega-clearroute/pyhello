@@ -17,8 +17,8 @@ spec:
       project: default
       source:
         repoURL: https://github.com/rvega-clearroute/pyhello.git
-        targetRevision: HEAD
-        path: Helm/pyhello/{{namespace}}-values.yaml
+        targetRevision: master
+        path: Helm/{{namespace}}/pyhello
       destination:
         server: '{{url}}'
         namespace: '{{namespace}}'
@@ -26,3 +26,4 @@ spec:
         automated:
           prune: true
           selfHeal: true
+
