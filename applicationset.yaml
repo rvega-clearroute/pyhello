@@ -1,3 +1,4 @@
+# to use multiple values.yaml files in a single chart, we need to use a Helm repository
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
@@ -19,8 +20,7 @@ spec:
       source:
         repoURL: https://github.com/rvega-clearroute/pyhello.git
         targetRevision: HEAD
-        #path: Helm/{{namespace}}/pyhello
-        path: Helm/pyhello/values-{{namespace}}.yaml
+        path: Helm/{{namespace}}/pyhello
       destination:
         server: '{{server}}'
         namespace: '{{namespace}}'
