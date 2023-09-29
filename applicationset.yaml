@@ -26,6 +26,6 @@ spec:
         namespace: '{{namespace}}'
       syncPolicy:
         automated:
-          prune: true
-          selfHeal: true
+          prune: true # it deletes resources when they are deleted in git
+          selfHeal: true # it reverts manual changes
 
