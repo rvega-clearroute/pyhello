@@ -2,6 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
   name: pyhello
+  namespace: argocd
 spec:
   generators:
     - list:
@@ -16,7 +17,8 @@ spec:
     spec:
       project: default
       source:
-        repoURL: https://github.com/rvega-clearroute/pyhello.git
+        #repoURL: https://github.com/rvega-clearroute/pyhello.git
+        repoURL: oci://europe-west2-docker.pkg.dev/valid-oven-400113/helm-repository
         targetRevision: master
         path: Helm/{{namespace}}/pyhello
       destination:
