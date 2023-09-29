@@ -17,12 +17,12 @@ spec:
     spec:
       project: default
       source:
-        #repoURL: https://github.com/rvega-clearroute/pyhello.git
-        repoURL: oci://europe-west2-docker.pkg.dev/valid-oven-400113/helm-repository
-        targetRevision: master
-        path: Helm/{{namespace}}/pyhello
+        repoURL: https://github.com/rvega-clearroute/pyhello.git
+        targetRevision: HEAD
+        #path: Helm/{{namespace}}/pyhello
+        path: Helm/pyhello/values-{{namespace}}.yaml
       destination:
-        server: '{{url}}'
+        server: '{{server}}'
         namespace: '{{namespace}}'
       syncPolicy:
         automated:
