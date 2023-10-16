@@ -24,8 +24,7 @@ spec:
         server: '{{server}}'
         namespace: '{{namespace}}'
       syncPolicy:
-        automated:
-          prune: true # it deletes resources when they are deleted in git
-          selfHeal: true # it reverts manual changes
         syncOptions:
           - CreateNamespace=true
+          - Prune=true #it deletes resources when they are deleted in git
+          - SelfHeal=true #it reverts manual changes
