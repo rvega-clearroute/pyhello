@@ -14,7 +14,6 @@ spec:
   template:
     metadata:
       name: '{{namespace}}-pyhello'
-    namespace: '{{namespace}}' # new
     spec:
       project: default
       source:
@@ -25,7 +24,14 @@ spec:
         server: '{{server}}'
         namespace: '{{namespace}}'
       syncPolicy:
+        automated:
+          selfHeal: true
         syncOptions:
-          #- CreateNamespace=true # it is not working
-          - Prune=true #it deletes resources when they are deleted in git
-          - SelfHeal=true #it reverts manual changes
+          - Validate=true
+          - CreateNamespace=true
+
+#      syncPolicy:
+#        syncOptions:
+#          - CreateNamespace=true # it is not working
+#          - Prune=true #it deletes resources when they are deleted in git
+#          - SelfHeal=true #it reverts manual changes
