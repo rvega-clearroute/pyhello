@@ -27,5 +27,5 @@ spec:
         automated:
           prune: true # it deletes resources when they are deleted in git
           selfHeal: true # it reverts manual changes
-      syncOptions:
-        CreateNamespace: true
+        syncOptions:
+          - CreateNamespace=true
