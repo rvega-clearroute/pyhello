@@ -1,4 +1,3 @@
-# to use multiple values.yaml files in a single chart, we need to use a Helm repository
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
@@ -28,4 +27,4 @@ spec:
         automated:
           prune: true # it deletes resources when they are deleted in git
           selfHeal: true # it reverts manual changes
-
+          CreateNamespace: true
