@@ -25,6 +25,6 @@ spec:
         namespace: '{{namespace}}'
       syncPolicy:
         syncOptions:
-          - CreateNamespace=true
+          - CreateNamespace=true # it is not working
           - Prune=true #it deletes resources when they are deleted in git
           - SelfHeal=true #it reverts manual changes
