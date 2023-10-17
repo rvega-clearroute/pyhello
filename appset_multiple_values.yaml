@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: pyhello
+  namespace: argocd
+spec:
+  generators:
+    - list:
+        elements:
+          - namespace: dev
+            server: https://kubernetes.default.svc
+          - namespace: prod
+            server: https://kubernetes.default.svc
+  template:
+    metadata:
+      name: '{{namespace}}-pyhello'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/rvega-clearroute/pyhello.git
+        targetRevision: HEAD
+        path: Helm/pyhello
+        helm:
+          valueFiles:
+            - '{{namespace}}-values.yaml'
+      destination:
+        server: '{{server}}'
+        namespace: '{{namespace}}'
+      syncPolicy:
+        automated:
+          selfHeal: true #it reverts manual changes
+          Prune: true #it deletes resources when they are deleted in git
+        syncOptions:
+          - Validate=true
+          - CreateNamespace=true
+
+
