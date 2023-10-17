@@ -9,6 +9,8 @@ spec:
         elements:
           - namespace: dev
             server: https://kubernetes.default.svc
+          - namespace: qa
+            server: https://kubernetes.default.svc
           - namespace: prod
             server: https://kubernetes.default.svc
   template:
