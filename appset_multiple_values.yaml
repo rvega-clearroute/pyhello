@@ -29,7 +29,7 @@ spec:
       syncPolicy:
         automated:
           selfHeal: true #it reverts manual changes
-          Prune: true #it deletes resources when they are deleted in git
+          #Prune: true #it deletes resources when they are deleted in git
         syncOptions:
           - Validate=true
           - CreateNamespace=true
